@@ -1,0 +1,4 @@
+/.idea/
+nestjs.iml
+/dist/
+/node_modules/
