@@ -12,6 +12,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: 'user',
       database: 'my-nestjs-test',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      // entities: [User, Table],
       synchronize: true,
     }),
   ],
