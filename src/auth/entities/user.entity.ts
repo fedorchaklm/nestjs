@@ -1,5 +1,5 @@
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 
 @Entity()
 export class User {
@@ -14,6 +14,9 @@ export class User {
 
   @BeforeInsert()
   async hashPassword(): Promise<void> {
+    if (!this.password) {
+      throw new Error('Cannot insert user without a password');
+    }
     this.password = await bcrypt.hash(this.password, 10);
   }
 
