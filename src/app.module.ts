@@ -4,8 +4,8 @@ import { TypeormModule } from './typeorm.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { SharedModule } from './shared/shared.module';
-import { GlobalExeptionFilter } from './filters/global-exeption.filter';
 import { APP_FILTER } from '@nestjs/core';
+import { GlobalExceptionFilter } from './shared/filters/global-exeption.filter';
 
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { APP_FILTER } from '@nestjs/core';
   providers: [
     {
       provide: APP_FILTER,
-      useClass: GlobalExeptionFilter,
+      useClass: GlobalExceptionFilter,
     },
   ],
 })

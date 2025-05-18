@@ -1,6 +1,8 @@
 services:
   db:
     image: mysql:8
+    volumes:
+      - ./mysql_db:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=my-nestjs-test
       - MYSQL_USER=user
